@@ -1,0 +1,53 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: gitea-argocd
+  finalizers:
+    - argoproj.io/finalizer
+spec:
+  server:
+    autoscale:
+      enabled: false
+    grpc:
+      ingress:
+        enabled: false
+    ingress:
+      enabled: false
+    route:
+      enabled: true
+    service:
+      type: ''
+  grafana:
+    enabled: false
+    ingress:
+      enabled: false
+    route:
+      enabled: false
+  monitoring:
+    enabled: false
+  notifications:
+    enabled: false
+  prometheus:
+    enabled: false
+    ingress:
+      enabled: false
+    route:
+      enabled: false
+  initialSSHKnownHosts: {}
+  repositoryCredentials: |
+    - sshPrivateKeySecret:
+        key: sshPrivateKey
+        name: my-ssh-secret
+      type: git
+      url: ssh://gitea@simple-gitea-gitea.apps.ocp4.klaassen.click:2022/marco/
+  rbac: {}
+  repo: {}
+  ha:
+    enabled: false
+  tls:
+    ca: {}
+  redis:
+    enabled: true
+  controller:
+    processors: {}
+    sharding: {}
