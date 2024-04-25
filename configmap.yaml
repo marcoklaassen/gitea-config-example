@@ -81,5 +81,5 @@ data:
     [ssh.minimum_key_sizes]
     ED25519   = 256
     ECDSA     = 256
-    RSA       = 3071
+    RSA       = -1
     DSA       = -1
