@@ -1,0 +1,19 @@
+apiVersion: pfe.rhpds.com/v1
+kind: Gitea
+metadata:
+  name: simple-gitea
+spec:
+  giteaAdminUser: marco
+  giteaAdminPassword: admin
+  giteaImageTag: 1.20.0
+  giteaSsl: true
+  giteaVolumeSize: 4Gi
+  postgresqlVolumeSize: 4Gi
+  giteaConfigMapName: custom-gitea-config
+  giteaHostname: simple-gitea-gitea.apps.ocp4.klaassen.click
+
+  postgresqlSetup: true
+  giteaPostgresqlServiceName: postgresql-simple-gitea
+  giteaPostgresqlDatabaseName: giteadb
+  giteaPostgresqlUser: giteauser
+  giteaPostgresqlPassword: giteapassword
